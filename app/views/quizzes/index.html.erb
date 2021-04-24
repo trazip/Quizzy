@@ -1,9 +1,13 @@
-<div class="w-screen h-screen bg-blue-400 flex justify-center items-center">
-  <div class="grid grid-cols-3 gap-4">
+<div class="w-screen h-screen bg-blue-400 flex justify-center items-start">
+  <div class="grid grid-cols-4 gap-4 m-32">
     <% @quizzes.each do |quiz| %>
-      <div class="bg-white shadow h-32">
-        <%= quiz.title %>
-      </div>
+      <%= link_to quiz_path(quiz) do %>
+        <div class="bg-white flex items-center justify-center shadow rounded-sm h-32 w-64">
+          <h3 class="text-2xl font-bold">
+            <%= quiz.title %>
+          </h3>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,10 @@
 <div class="w-screen h-screen bg-blue-400 flex justify-center items-center">
-  <div class="w-2/3 h-2/3 bg-white shadow rounded-lg">
-    <%= render './quizzes/partials/form' %>
+  <div class="w-2/3 h-2/3 bg-white shadow rounded-sm">
+    <div class="header py-6">
+      <h2 class="text-center font-semibold text-3xl">Create a quiz</h2>
+    </div>
+    <div class="flex justify-center items-center h-1/2">
+      <%= render './quizzes/partials/form' %>
+    </div>
   </div>
 </div>

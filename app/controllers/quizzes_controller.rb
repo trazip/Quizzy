@@ -11,6 +11,14 @@ class QuizzesController < ApplicationController
   end
 
   def create
+    @quiz = Quiz.new(quiz_params)
+    @quiz.user_id = current_user.id
+
+    if @quiz.save
+      redirect_to quizzes_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -20,5 +28,11 @@ class QuizzesController < ApplicationController
   end
 
   def delete
+  end
+
+  private
+
+  def quiz_params
+    params.require(:quiz).permit(:title)
   end
 end
