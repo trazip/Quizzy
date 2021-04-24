@@ -1,0 +1,9 @@
+<div class="w-screen h-screen bg-blue-400 flex justify-center items-center">
+  <div class="grid grid-cols-3 gap-4">
+    <% @quizzes.each do |quiz| %>
+      <div class="bg-white shadow h-32">
+        <%= quiz.title %>
+      </div>
+    <% end %>
+  </div>
+</div>
