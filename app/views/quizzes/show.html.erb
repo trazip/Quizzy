@@ -1,2 +1,20 @@
-<h1>Quizzes#show</h1>
-<p>Find me in app/views/quizzes/show.html.erb</p>
+<div class="w-screen h-screen bg-blue-400 flex flex-col justify-start items-center">
+  <div class="header mt-24 w-2/3 px-4 shadow rounded-sm h-36 bg-white flex justify-start items-start">
+    <div class="flex flex-col">
+      <h2 class="font-semibold text-3xl w-full pt-6 px-4"><%= @quiz.title %></h2>
+      <p class="font-semibold text-sm w-full pt-2 px-4">Description : Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
+    </div>
+  </div>
+  <div class="w-2/3 mt-8 px-4 shadow rounded-sm h-36 bg-white flex justify-start items-start">
+    <div class="flex flex-col">
+      <%#= render './quiz_questions/partials/form', locals: { quiz: @quiz, quiz_question: @quiz_question } %>
+      <%= form_for ([@quiz, @quiz_question]) do |f| %>
+        First name: <%= f.text_field :first_name %><br />
+        Last name : <%= f.text_field :last_name %><br />
+        Biography : <%= f.text_area :biography %><br />
+        Admin?    : <%= f.check_box :admin %><br />
+        <%= f.submit %>
+      <% end %>
+    </div>
+  </div>
+</div>
