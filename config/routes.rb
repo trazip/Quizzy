@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to: 'quizzes#index'
 
   resources :quizzes do
-    resources :questions
+    resources :questions, only: [:new, :create]
   end
+
+  resources :questions, only: [:edit, :update, :destroy]
 end
