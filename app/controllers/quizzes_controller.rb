@@ -1,6 +1,8 @@
 class QuizzesController < ApplicationController
+  before_action :set_quiz, only: [:show, :edit, :update, :destroy]
+
   def index
-    @quizzes = Quiz.all
+    @quizzes = Quiz.all.order(id: 'ASC')
   end
 
   def show
@@ -22,15 +24,24 @@ class QuizzesController < ApplicationController
   end
 
   def edit
+    render :new
   end
 
   def update
+    @quiz.update(quiz_params)
+    redirect_to quizzes_path
   end
 
-  def delete
+  def destroy
+    @quiz.destroy
+    redirect_to quizzes_path
   end
 
   private
+
+  def set_quiz
+    @quiz = Quiz.find(params[:id])
+  end
 
   def quiz_params
     params.require(:quiz).permit(:title)
